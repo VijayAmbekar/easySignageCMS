@@ -15,5 +15,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="lib" path="F:/DEVENV/Eclipse project/easySignageCMS/WebContent/WEB-INF/lib/mysql-connector-java-5.1.32-bin.jar"/>
 	<classpathentry exported="true" kind="lib" path="F:/DEVENV/Eclipse project/easySignageCMS/WebContent/WEB-INF/lib/json-simple-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/DEVENV/Eclipse project/easySignageCMS/WebContent/WEB-INF/lib/commons-fileupload-1.3.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="F:/DEVENV/Eclipse project/easySignageCMS/WebContent/WEB-INF/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

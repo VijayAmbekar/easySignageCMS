@@ -9,14 +9,19 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+  <context-param>
+    <description>Location to store uploaded file</description>
+    <param-name>file-upload</param-name>
+    <param-value>
+         F:\DEVENV\Eclipse project\easySignageCMS\WebContent\easySignageLibrary\
+     </param-value>
+  </context-param>
   <servlet>
-  	<servlet-name>authenticator</servlet-name>
-  	<servlet-class>com.easysignage.cms.controller.AuthenticatorServlet</servlet-class>
+    <servlet-name>authenticator</servlet-name>
+    <servlet-class>com.easysignage.cms.controller.AuthenticatorServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>authenticator</servlet-name>
-  	<url-pattern>*.do</url-pattern>
+    <servlet-name>authenticator</servlet-name>
+    <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 </web-app>

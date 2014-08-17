@@ -3,6 +3,7 @@
  */
 package com.easysignage.cms.dao;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 
 import com.easysignage.cms.bean.LayoutTemplate;
 import com.easysignage.cms.bean.LoginBean;
+import com.easysignage.cms.bean.MediaBean;
 
 /**
  * @author Vijay created 13 August, 2014 last modified 13 August, 2014
@@ -122,6 +124,89 @@ public class Connect {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	public static boolean addMedia(String libPath, MediaBean media) {
+		// Find the uploaded file and get its size
+		// insert record in the database
+		// rename file to the inserted mediaId
+		// media_type, media_name, fileName, media_size, duration
+		String sql = "select max(media_id) from media;";
+		String insertSQL = "insert into media values(?,?, ?,?, ?, ?)";
+		int newMediaID = 1;
+		Connection con = null;
+		try {
+
+			con = getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			if (rs.next()) {
+				newMediaID = rs.getInt(1) + 1;
+				System.out.print("New Media ID : " + newMediaID);
+			}
+
+			System.out.println("File Name : " + media.getFileName());
+
+			File file = new File(libPath + media.getFileName());
+			if (file.exists()) {
+				media.setMediaSize(file.length());
+			} else {
+				media.setMediaSize(0);
+			}
+			String newFileName = newMediaID + "."
+					+ media.getFileName().split("\\.")[1];
+
+			PreparedStatement pstmt = con.prepareStatement(insertSQL);
+			pstmt.setInt(1, newMediaID);
+			pstmt.setString(2, media.getMediaType());
+			pstmt.setString(3, media.getMediaName());
+			pstmt.setString(4, newFileName);
+			pstmt.setLong(5, media.getMediaSize());
+			pstmt.setInt(6, media.getMediaDuration());
+
+			if (pstmt.executeUpdate() == 1) {
+				file.renameTo(new File(libPath + newFileName));
+				con.commit();
+				System.out.println("add media success @@@@@");
+				return true;
+			} else {
+				System.out.println("Unable to add media....");
+				con.rollback();
+				return false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	public static ArrayList<MediaBean> getImageList() {
+		String sql = "select * from media where media_type='image'";
+		Connection con = null;
+		ArrayList<MediaBean> mediaList = null;
+		// media_type, media_name, fileName, media_size, duration
+		try {
+			con = getConnection();
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				if (mediaList == null) {
+					mediaList = new ArrayList<MediaBean>();
+				}
+				mediaList.add(new MediaBean(rs.getInt(1), rs.getString(2), rs
+						.getString(3), rs.getString(4), rs.getInt(5), rs
+						.getInt(6)));
+			}
+
+			return mediaList;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return null;
 	}
 }
