@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="bower_components/|js/charisma.js|js/init-chart.js|js/jquery.autogrow-textarea.js|js/jquery.cookie.js|js/jquery.dataTables.min.js|js/jquery.history.js|js/jquery.iphone.toggle.js|js/jquery.noty.js|js/jquery.raty.min.js|js/jquery.uploadify-3.1.min.js" kind="src" path="WebContent"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
+		<attributes>
+			<attribute name="hide" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="output" path=""/>
+</classpath>
