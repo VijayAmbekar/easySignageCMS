@@ -11,8 +11,10 @@
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Gallery</a></li>
+					<li><a href="#">Home</a>
+					</li>
+					<li><a href="#">Gallery</a>
+					</li>
 				</ul>
 			</div>
 
@@ -48,7 +50,7 @@
 								<li id='image-<%=media.getMediaID()%>' class="thumbnail"><a
 									style="background: url(easySignageLibrary/<%=media.getFileName()%>)"
 									title="Sample Image <%=media.getMediaID()%>"
-									href="easySignageLibrary/<%=media.getFileName()%>"><img
+									href="easySignageLibrary/<%=media.getFileName()%>"><img width="100" height="100"
 										class="grayscale"
 										src="easySignageLibrary/<%=media.getFileName()%>"
 										alt="Sample Image <%=media.getMediaID()%>"> </a>
@@ -95,15 +97,12 @@
 							<form id="media-info" action="addMedia.do" method="post">
 								<ul>
 									<li>Media Name: <input type="text" id="mediaName"
-										name="mediaName" size="30">
-									</li>
+										name="mediaName" size="30"></li>
 									<li></li>
 									<li>Media Duration: <input type="text" id="mediaDuration"
-										name="mediaDuration" size="5">
-									</li>
+										name="mediaDuration" size="5"></li>
 									<li><input type="submit" name="mediaDuration"
-										value="Add Media">
-									</li>
+										value="Add Media"></li>
 								</ul>
 							</form>
 						</div>

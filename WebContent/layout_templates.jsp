@@ -11,8 +11,10 @@
 			<!-- content starts -->
 			<div>
 				<ul class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Layout Templates</a></li>
+					<li><a href="#">Home</a>
+					</li>
+					<li><a href="#">Layout Templates</a>
+					</li>
 				</ul>
 			</div>
 
@@ -53,7 +55,8 @@
 									<td><a href="#"
 										class="btn btn-layout-popup btn-round btn-default btn-success"
 										template-id="<%=template.getTemplateID()%>"><i
-											class="glyphicon glyphicon-cog"></i> View</a></td>
+											class="glyphicon glyphicon-cog"></i> View</a>
+									</td>
 								</tr>
 								<%
 									}
@@ -83,6 +86,12 @@
 					<div class="modal-body" align="center">
 						<canvas id='layoutTemplate' width='400' height='225'
 							style='border: solid 1px #000000;'></canvas>
+					</div>
+					<div class="modal-footer">
+						<button id="createLayout"  type="button" class="btn btn-default">Create Layout</button>
+						<!-- <a href="#" class="btn btn-default" data-dismiss="modal">Close</a>
+						<a href="#" class="btn btn-primary" data-dismiss="modal">Save
+							changes</a> -->
 					</div>
 				</div>
 			</div>
